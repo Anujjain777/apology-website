@@ -2,120 +2,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I'm Really Sorry</title>
+  <title>Apology Page</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #ffdde1, #ee9ca7);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.pinimg.com/originals/76/f1/f3/76f1f3d57388c8b0efbd867b60f9dcdd.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-    }.container {
-  max-width: 600px;
-  margin: 100px auto;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10;
-}
-
-.question, .date-input, .final-message {
-  margin-top: 30px;
-}
-
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: #ff6f91;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ff3e6c;
-}
-
-.hidden {
-  display: none;
-}
-
-.bg-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  background: url(''); /* Cute background */
-  background-size: cover;
-  opacity: 0.4;
-}
-
-.explosion {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  pointer-events: none;
-  background: url(''); /* Confetti and teddies */
-  background-size: cover;
-  opacity: 1;
-}
-
+      color: #fff;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .buttons {
+      margin-top: 25px;
+    }
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .yes {
+      background-color: #4caf50;
+      color: white;
+    }
+    .no {
+      background-color: #f44336;
+      color: white;
+    }
+    .hidden {
+      display: none;
+    }
+    .final-message {
+      margin-top: 20px;
+      font-size: 1.3em;
+    }
   </style>
 </head>
 <body>
-  <div class="bg-animation"></div>
   <div class="container">
-    <h2>💖 I'm Really Sorry 💖</h2>
-    <p>I know I messed things up and we had to cancel our plan. I truly didn't mean for things to go this way. I'm really, really sorry. Please forgive me 🙏</p><div class="question">
-  <p>Do you accept my apology?</p>
-  <button class="btn" onclick="acceptApology(true)">Yes</button>
-  <button class="btn" onclick="acceptApology(false)">No</button>
-</div>
-
-<div class="date-input hidden">
-  <p>Yay! 💕 Tell me another date when we can go on a movie date! 🎬🍿</p>
-  <input type="date" id="date" />
-  <button class="btn" onclick="showFinalMessage()">Okay</button>
-</div>
-
-<div class="final-message hidden">
-  <h3>🌸 Yay! I'm so excited! 🌸</h3>
-  <p>Thank you for forgiving me! Can't wait to go out with you! 🧸🍫💐</p>
-</div>
-
-<div id="explosion" class="hidden explosion"></div>
-
+    <h1>I'm Really Sorry 😔</h1>
+    <p>Hey, I just wanted to say I'm really sorry for what happened. Will you forgive me?</p>
+    <div class="buttons">
+      <button class="yes" onclick="acceptApology(true)">Yes, I forgive you 💚</button>
+      <button class="no" onclick="acceptApology(false)">No, not yet 💔</button>
+    </div>
+    <div class="question hidden">
+      <p>Tell me another date when we can go on a movie date 🎬❤:</p>
+      <input type="date" class="date-input" onchange="showFinalMessage()">
+    </div>
+    <div class="final-message hidden">
+      <h3>🥳 Yay! I'm so excited! 🥰</h3>
+      <p>Thank you for forgiving me! Can't wait to go out with you! 🦋🍿💖</p>
+    </div>
   </div>  <script>
     function acceptApology(accepted) {
       if (accepted) {
-        document.querySelector('.question').classList.add('hidden');
-        document.querySelector('.date-input').classList.remove('hidden');
+        document.querySelector('.question').classList.remove('hidden');
       } else {
-        alert("Please accept the apology 🙈");
+        alert("Please accept the apology 😢");
       }
     }
 
     function showFinalMessage() {
       document.querySelector('.date-input').classList.add('hidden');
       document.querySelector('.final-message').classList.remove('hidden');
-      document.getElementById('explosion').classList.remove('hidden');
-
-      setTimeout(() => {
-        document.getElementById('explosion').classList.add('hidden');
-      }, 4000);
     }
   </script></body>
 </html>
