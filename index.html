@@ -73,38 +73,11 @@
   opacity: 1;
 }
 
-.butterfly {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-image: url('https://i.imgur.com/Z2gRrg3.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: fly 20s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fly {
-  0% {
-    transform: translateX(-10%) translateY(0);
-  }
-  50% {
-    transform: translateX(110vw) translateY(-50vh);
-  }
-  100% {
-    transform: translateX(-10%) translateY(0);
-  }
-}
-
   </style>
 </head>
 <body>
   <div class="bg-animation"></div>
-  <!-- Butterflies -->
-  <div class="butterfly" style="top: 10%; left: -50px; animation-delay: 0s;"></div>
-  <div class="butterfly" style="top: 30%; left: -70px; animation-delay: 4s;"></div>
-  <div class="butterfly" style="top: 50%; left: -90px; animation-delay: 8s;"></div>
-  <div class="butterfly" style="top: 70%; left: -60px; animation-delay: 12s;"></div>  <div class="container">
+  <div class="container">
     <h2>💖 I'm Really Sorry 💖</h2>
     <p>I know I messed things up and we had to cancel our plan. I truly didn't mean for things to go this way. I'm really, really sorry. Please forgive me 🙏</p><div class="question">
   <p>Do you accept my apology?</p>
@@ -114,8 +87,8 @@
 
 <div class="date-input hidden">
   <p>Yay! 💕 Tell me another date when we can go on a movie date! 🎬🍿</p>
-  <input type="date" id="date" required />
-  <button class="btn" onclick="showExplosion()">Okay</button>
+  <input type="date" id="date" />
+  <button class="btn" onclick="showFinalMessage()">Okay</button>
 </div>
 
 <div class="final-message hidden">
@@ -135,15 +108,11 @@
       }
     }
 
-    function showExplosion() {
-      const selectedDate = document.getElementById('date').value;
-      if (!selectedDate) {
-        alert("Please select a date first! 😊");
-        return;
-      }
+    function showFinalMessage() {
       document.querySelector('.date-input').classList.add('hidden');
       document.querySelector('.final-message').classList.remove('hidden');
       document.getElementById('explosion').classList.remove('hidden');
+
       setTimeout(() => {
         document.getElementById('explosion').classList.add('hidden');
       }, 4000);
